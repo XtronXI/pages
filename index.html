@@ -43,7 +43,7 @@
         }
 
         .header_title {
-            margin-left: 30px;
+            margin-left: 60px;
         }
 
         .main_title_area {
@@ -89,20 +89,22 @@
             color: #FFFFFF;
             display: flex;
             font-family: "Minecraft Seven", sans-serif;
-            font-size: 20px;
-            height: 60px;
+            font-size: 15px;
+            height: 160px;
             justify-content: center;
+            flex-direction: column;
             text-align: center;
+            gap: 6px;
         }
     </style>
-    <title>快速开始 | OreUI</title>
+    <title>MCDOC</title>
 </head>
 
 <div class="loading_mask" id="loading_mask">
     <div>
         <div class="spinner"><img alt="" id="spinner_img" src="./images/Loading_white.gif"/></div>
         <div class="spinner">
-            <div class="spinner"><span class="spinner_text">生成世界中</span></div>
+            <div class="spinner"><span class="spinner_text">Loading...</span></div>
         </div>
         <noscript>
             <style>
@@ -112,21 +114,32 @@
             </style>
             <div class="spinner"><img alt="" id="spinner_img_error" src="./images/ErrorMessage.png"/></div>
             <div class="spinner">
-                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前环境不支持或已禁用脚本.<br>请更换支持脚本的环境或在设置中允许脚本后访问本站.</span></div>
+                <div class="spinner"><span class="spinner_text_error">Error in Loading: Scripts not working as intended.<br>Please switch to an environment that supports scripts or enable scripts in your settings before accessing this site.</span></div>
             </div>
         </noscript>
     </div>
 </div>
 
 <body>
-<dispaly-area>
+<display-area>
     <header>
-        <div class="header_item header_item_left header_item_blank"></div>
-        <div class="header_logo">
-            <div class="header_title">OreUI 设计</div>
+        <div class="header_item header_item_left" onclick="clickedMenu();">
+            <img alt="Hell Yah" class="header_left_icon" src="https://mcarc.spectrollay.com/minecraft_repository_test/images/Menu.png"/>
         </div>
-        <div class="header_item header_item_right" onclick="playSoundType(this);openLink('https://github.com/Spectrollay/OreUI');">
-            <img alt="" class="header_right_icon" src="./images/Github.png"/>
+        <div class="header_logo">
+            <div class="header_title">
+                <img alt="MCDOC Icon" src="./images/Enchanters_Tome_MCD.png" style="max-height:40px; max-width:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+                <!--<img alt="MCDOC Text" src="./images/MCDOC_text.png" style="max-height:45px; max-width:100%; width:auto; height:auto; object-fit:contain; display:inline-block; transform:translateX(-10px);"/> -->
+                MCDOC
+            </div>
+        </div>
+        <div class="header_right">
+            <div class="header_item header_item_right" onclick="playSoundType(this);openLink('https://github.com/Spectrollay/OreUI');">
+                <img alt="" class="header_right_icon" src="./images/Github.png"/>
+            </div>
+            <div class="header_item header_item_right" onclick="playSoundType(this);openLink('https://discord.gg/test');">
+                <img alt="" class="header_right_icon" src="./images/Enchanters_Tome_MCD.png"/>
+            </div>
         </div>
     </header>
     <display-body>
@@ -135,57 +148,55 @@
                 <main class="scroll_container" id="main">
                     <div class="main_title">
                         <div class="main_title_area">
-                            <img alt="Minecraft ArtWork" class="header_img" src="./images/Default.png"/>
-                            <div class="main_title_span_main">OreUI 设计</div>
-                            <div class="main_title_span_sub">一个基于 OreUI 设计理念的原生 WebUI 实现</div>
+                            <img alt="MCDOC" class="header_img" src="./images/MCDOC.png"/>
+                            <div class="main_title_span_main">Free Minecraft?</div>
+                            <div class="main_title_span_sub">Ultimate Minecraft P*r*cy Index</div>
                         </div>
                     </div>
                     <div class="main main_block">
                         <div class="main_block_content">
                             <div class="btn_group">
-                                <custom-button data="default|green|small||false||" js="openLink('./docs');" text="设计文档"></custom-button>
-                                <custom-button data="default|normal|small||false||" js="openLink('./docs/how_to_use.html');" text="使用指南"></custom-button>
+                                <custom-button data="default|green|small||false||" js="openLink('./docs');" text="Download"></custom-button>
+                                <custom-button data="default|normal|small||false||" js="openLink('./docs/how_to_use.html');" text="Browse"></custom-button>
                             </div>
                         </div>
                     </div>
                     <div class="main main_block">
                         <div class="main_block_content">
                             <div class="wrap_flex main_description">
-                                <link-block class="description_block">
+                                <link-block class="description_block" role="link" onclick="openLink('./unlockers');" aria-label="Unlockers">
                                     <div class="link_title">
-                                        <span class="link_title_text">纯原生实现</span>
+                                        <span class="link_title_text">Unlockers</span>
                                     </div>
-                                    <div class="link_description">不依赖任何第三方库，确保轻量、高效、易于集成。</div>
+                                    <div class="link_description">Cross platform unlockers to unlock Minecraft. (Windows, Android, IOS, PS, Nintendo, Xbox)</div>
                                 </link-block>
-                                <link-block class="description_block">
+                                <link-block class="description_block" role="link" onclick="openLink('./marketplace');" aria-label="Marketplace">
                                     <div class="link_title">
-                                        <span class="link_title_text">模块化构建</span>
+                                        <span class="link_title_text">Marketplace</span>
                                     </div>
-                                    <div class="link_description">组件可独立使用或组合使用，极大提升开发灵活性。</div>
+                                    <div class="link_description">Get addons, skinpacks, maps etc. for free</div>
                                 </link-block>
-                                <link-block class="description_block">
+                                <link-block class="description_block" role="link" onclick="openLink('./learn');" aria-label="Learn">
                                     <div class="link_title">
-                                        <span class="link_title_text">高度可定制</span>
+                                        <span class="link_title_text">Learn</span>
                                     </div>
-                                    <div class="link_description">通过简单调整即可轻松修改样式，满足个性化需求。</div>
+                                    <div class="link_description">Understand how does most of the cracks work</div>
                                 </link-block>
-                                <link-block class="description_block">
+                                <link-block class="description_block" role="link" onclick="openLink('./communities');" aria-label="Communities">
                                     <div class="link_title">
-                                        <span class="link_title_text">响应式设计</span>
+                                        <span class="link_title_text">Communities</span>
                                     </div>
-                                    <div class="link_description">组件针对不同设备类型自适应显示，确保流畅体验。</div>
-                                </link-block>
-                                <link-block class="description_block">
-                                    <div class="link_title">
-                                        <span class="link_title_text">广泛兼容性</span>
-                                    </div>
-                                    <div class="link_description">支持大多数主流现代浏览器，各终端特性保持一致。</div>
+                                    <div class="link_description">Find the perfect community for your needs. (Cracks, tools, archives, building)</div>
                                 </link-block>
                             </div>
                         </div>
                     </div>
                     <div class="footer_info">
-                        <div>MIT Licensed | © 2020 Spectrollay</div>
+                        <div>All trademarks, service marks, and trade names of Microsoft, Mojang, and Minecraft used in the site are trademarks or registered trademarks of their respective owners.</div>
+                        <div>MCDOC does NOT host any pirated content neither any parts or components of Minecraft or any other program mentioned on the website. MCDOC only host links to tools for educational purposes!</div>
+                        <div>MCDOC is not in relation with the schema format mcdoc, which is used by Minecraft.</div>
+                        <div>© 2024-2025 OpenM Project</div>
+                        <div>Based On: OneUI - © 2020 Spectrollay</div>
                     </div>
                 </main>
             </scroll-container>
@@ -195,8 +206,46 @@
             </custom-scrollbar>
         </scroll-view>
     </display-body>
-</dispaly-area>
+</display-area>
+<div class="sidebar" id="sidebar">
+    <scroll-view>
+        <scroll-container class="secondary_scroll_container">
+            <div class="sidebar_content scroll_container">
+                <div class="sidebar_list">
+                    <a class="sidebar_item" href="./index.html#header_notice">版本库信息</a>
+                    <a class="sidebar_item" href="./index.html#bedrock_edition">基岩版</a>
+                    <a class="sidebar_item" href="./index.html#pocket_edition">携带版</a>
+                    <a class="sidebar_item" href="./index.html#education_edition">教育版</a>
+                    <a class="sidebar_item" href="./index.html#trial">试玩版</a>
+                    <a class="sidebar_item" href="./index.html#demo">演示版</a>
+                    <a class="sidebar_item" href="./index.html#more_edition">更多版本</a>
+                    <a class="sidebar_item" href="./index.html#footer_notice">版本库须知</a>
+                </div>
+                <div class="sidebar_info">
+                    <div class="sidebar_detail_title" id="sidebar_bottom_title"></div>
+                    <div class="sidebar_detail" id="sidebar_bottom_detail1"></div>
+                    <div class="sidebar_detail">
+                        <custom-button data="sidebar|normal|||false||" js="clickedSidebarBottomBtn();" text="官方网站"></custom-button>
+                    </div>
+                </div>
+            </div>
+        </scroll-container>
+        <custom-scrollbar class="secondary_custom_scrollbar">
+            <custom-scrollbar-track></custom-scrollbar-track>
+            <custom-scrollbar-thumb></custom-scrollbar-thumb>
+        </custom-scrollbar>
+    </scroll-view>
+</div>
+<div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
+<!-- Pop弹窗 -->
+<div class="pop_area" id="pop_area"></div>
+
+<!-- 提示弹窗 -->
+<div class="overlay" id="overlay_alert_modal"></div>
+<modal_area id="alert_modal" style="display: none;"></modal_area>
+
 </body>
+
 
 <script src="./javascript/loading.js"></script>
 <script src="./library/accessibility.js"></script>

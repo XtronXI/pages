@@ -34,37 +34,37 @@
 /* 自定义字体 */
 @font-face {
     font-family: 'Minecraft Ten';
-    src: url("/OreUI/fonts/Minecraft-Ten.otf") format('opentype');
+    src: url("../fonts/Minecraft-Ten.otf") format('opentype');
 }
 
 @font-face {
     font-family: 'Minecraft Seven';
-    src: url("/OreUI/fonts/Minecraft-Seven.otf") format('opentype');
+    src: url("../fonts/Minecraft-Seven.otf") format('opentype');
 }
 
 @font-face {
     font-family: 'Minecraft Five Bold';
-    src: url("/OreUI/fonts/Minecraft-Five-Bold.otf") format('opentype');
+    src: url("../fonts/Minecraft-Five-Bold.otf") format('opentype');
 }
 
 @font-face {
     font-family: 'Minecraft Five';
-    src: url("/OreUI/fonts/Minecraft-Five.otf") format('opentype');
+    src: url("../fonts/Minecraft-Five.otf") format('opentype');
 }
 
 @font-face {
     font-family: 'NotoSans Bold';
-    src: url("/OreUI/fonts/NotoSans-Bold.ttf") format('truetype');
+    src: url("../fonts/NotoSans-Bold.ttf") format('truetype');
 }
 
 @font-face {
     font-family: 'NotoSans BoldItalic';
-    src: url("/OreUI/fonts/NotoSans-BoldItalic.ttf") format('truetype');
+    src: url("../fonts/NotoSans-BoldItalic.ttf") format('truetype');
 }
 
 @font-face {
     font-family: 'NotoSans Italic';
-    src: url("/OreUI/fonts/NotoSans-Italic.ttf") format('truetype');
+    src: url("../fonts/NotoSans-Italic.ttf") format('truetype');
 }
 
 /* 页面选择事件 */
@@ -107,7 +107,7 @@ body {
     -webkit-user-select: none;
 }
 
-dispaly-area {
+display-area {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -123,7 +123,7 @@ header {
     justify-content: space-between;
     min-width: 330px;
     position: relative;
-    z-index: 10;
+    z-index: 100;
 }
 
 .header_left {
@@ -1155,6 +1155,54 @@ link-block:hover, link-block:active {
 
 .link_title {
     font-size: 17px;
+}
+
+/* Make link-blocks consistent size regardless of text content */
+.description_block {
+    box-sizing: border-box; /* include padding/border in size */
+    width: 240px; /* fixed width for desktop/tablet */
+    height: 140px; /* fixed height so all blocks match */
+    flex: 0 0 240px; /* prevent shrinking/growing in the flex container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 12px 14px; /* keep spacing inside */
+    overflow: hidden; /* ensure long text doesn't resize the block */
+}
+
+.description_block .link_description {
+    font-size: 13px;
+    line-height: 1.2;
+    max-height: 3.6em; /* limit to ~3 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive: on narrow screens allow blocks to take full width */
+@media screen and (max-width: 560px) {
+    .description_block {
+        width: calc(100% - 32px);
+        flex: 0 0 auto;
+        height: auto;
+        margin: 8px 0;
+    }
+}
+
+/* Ensure pointer cursor on hover/focus for link blocks and their children */
+link-block,
+link-block:focus,
+link-block:hover,
+.description_block,
+.description_block:focus,
+.description_block:hover {
+    cursor: pointer;
+}
+
+/* Ensure nested elements don't override cursor */
+.description_block * {
+    cursor: inherit;
 }
 
 .link_title_img {

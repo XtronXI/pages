@@ -236,9 +236,9 @@ function clickedBack() {
 // 打开网页
 function openLink(url) {
     if (url.includes('mcarc.github.io')) { // TODO 在移除全部相关链接后删除判定
-        ifNavigating('open', '/minecraft_repository_test/default/error_not-found.html');
+        ifNavigating('direct', '/minecraft_repository_test/default/error_not-found.html');
     } else {
-        ifNavigating('open', url);
+        ifNavigating('direct', url);
     }
 }
 
@@ -266,3 +266,46 @@ function toTop() {
         top: 0, behavior: 'instant'
     });
 }
+
+function clickedMenu() {
+    toggleSidebar();
+    toggleOverlay();
+}
+
+function clickedOverlay() {
+    toggleSidebar();
+    toggleOverlay();
+}
+
+let sidebarOpen = false;
+
+function toggleSidebar() { // 切换侧边栏状态
+    const sidebar = document.getElementById('sidebar');
+    if (sidebarOpen) {
+        playSound('close');
+        sidebar.style.left = -sidebar.offsetWidth + 'px'; // 隐藏到屏幕左侧
+        logManager.log("侧边栏执行收起操作");
+    } else {
+        playSound('open');
+        sidebar.style.left = '0'; // 显示侧边栏
+        logManager.log("侧边栏执行展开操作");
+    }
+    sidebarOpen = !sidebarOpen;
+    logManager.log("更新侧边栏状态成功");
+}
+
+let overlayShow = false;
+
+function toggleOverlay() { // 切换遮罩
+    const overlay_main = document.getElementById('overlay_main');
+    if (overlayShow) {
+        overlay_main.style.display = 'none';
+        logManager.log("遮罩成功隐藏");
+    } else {
+        overlay_main.style.display = 'block';
+        logManager.log("遮罩成功显示");
+    }
+    overlayShow = !overlayShow;
+    logManager.log("更新遮罩状态成功");
+}
+

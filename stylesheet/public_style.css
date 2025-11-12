@@ -33,3 +33,124 @@
 .notice_img {
     width: 280px;
 }
+
+.sidebar {
+    background-color: #313233;
+    border-right: 2px solid #1E1E1F;
+    display: flex;
+    font-family: "NotoSans Bold", sans-serif;
+    height: 100%;
+    left: -240px; /* NOTE 侧边栏的显示宽度 */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    transition: left 0.6s, width 0.6s;
+    width: 238px; /* NOTE 侧边栏的宽度 */
+    z-index: 10;
+}
+
+.tab_sidebar.no_active {
+    display: none;
+}
+
+.tab_sidebar.active {
+    display: block;
+}
+
+.sidebar.old { /* TODO 旧页面完成迭代后移除 */
+    height: calc(100% - 44px);
+    position: fixed;
+    top: 44px;
+}
+
+@media screen and (min-width: 1200px) {
+    .sidebar.new {
+        left: 0 !important;
+    }
+
+    .sidebar.old { /* TODO 旧页面完成迭代后移除 */
+        left: -240px; /* NOTE 侧边栏的显示宽度 */
+    }
+}
+.secondary_scroll_container {
+    height: 100%;
+    top: 0;
+    width: 100%;
+}
+
+.secondary_scroll_container.old { /* TODO 旧页面完成迭代后移除 */
+    height: calc(100% - 44px);
+    top: 44px;
+    width: 240px; /* NOTE 侧边栏的显示宽度 */
+}
+
+.sidebar a {
+    box-shadow: unset;
+    text-decoration: none;
+}
+
+.sidebar_content {
+    width: auto;
+}
+
+.sidebar_list {
+    border-top: 2px solid #454647;
+}
+
+.sidebar_header {
+    align-items: center;
+    border-bottom: 2px solid #000000;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    justify-content: center;
+    width: 100%;
+}
+
+.sidebar_list {
+    border-bottom: 2px solid #000000;
+}
+
+.sidebar_item {
+    align-items: center;
+    color: #FFFFFF;
+    display: flex;
+    height: 40px;
+    padding-left: 10px;
+}
+
+.sidebar_detail_title {
+    font-family: "Minecraft Ten", sans-serif;
+    font-size: 20px;
+    margin: 6px 0;
+    min-height: 30px;
+    text-align: center;
+}
+
+.sidebar_detail_title, .sidebar_detail {
+    align-items: center;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar_detail {
+    font-size: 14px;
+    height: 24px;
+    margin-bottom: 24px;
+}
+
+.sidebar_info {
+    border-top: 2px solid #454647;
+}
+
+.sidebar_item:hover, .sidebar_item:active {
+    background-color: #67686A;
+}
+
+@media screen and (min-width: 1200px) {
+    .overlay_main.new { /* TODO 旧页面完成迭代后移除 */
+        display: none !important;
+    }
+}

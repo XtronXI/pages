@@ -25,17 +25,7 @@ const currentURL = window.location.href;
 const currentPagePath = window.location.pathname;
 let hostPath = window.location.origin;
 const parts = currentPagePath.split('/').filter(Boolean);
-let rootPath = (function () {
-    if (!currentPagePath) return '/';
-    let path = currentPagePath.endsWith('/') ? currentPagePath.slice(0, -1) : currentPagePath;
-    const lastSlash = path.lastIndexOf('/');
-    if (lastSlash === -1) return path || '/';
-    const lastSegment = path.slice(lastSlash + 1);
-    if (lastSegment.includes('.')) {
-        path = path.slice(0, lastSlash);
-    }
-    return path || '/';
-})();
+let rootPath = '/' + (parts.length > 0 ? parts[0] : '');
 const slashCount = (currentPagePath.match(/\//g) || []).length;
 
 // 日志管理器

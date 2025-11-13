@@ -20,12 +20,22 @@
  * SOFTWARE.
  */
 
-// 路径检测
+
 const currentURL = window.location.href;
 const currentPagePath = window.location.pathname;
 let hostPath = window.location.origin;
 const parts = currentPagePath.split('/').filter(Boolean);
-let rootPath = '/' + (parts.length > 0 ? parts[0] : '');
+let rootPath = (function () {
+    if (!currentPagePath) return '/';
+    let path = currentPagePath.endsWith('/') ? currentPagePath.slice(0, -1) : currentPagePath;
+    const lastSlash = path.lastIndexOf('/');
+    if (lastSlash === -1) return path || '/';
+    const lastSegment = path.slice(lastSlash + 1);
+    if (lastSegment.includes('.')) {
+        path = path.slice(0, lastSlash);
+    }
+    return path || '/';
+})();
 const slashCount = (currentPagePath.match(/\//g) || []).length;
 
 // 日志管理器
@@ -179,6 +189,8 @@ async function getCachedAudio(filePath) {
     // 如果缓存获取失败直接返回网络资源
     return new Audio(filePath);
 }
+
+let userVolume = 1;
 
 // 音效设置
 const soundPaths = {

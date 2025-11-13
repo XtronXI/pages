@@ -1180,7 +1180,6 @@ link-block:hover, link-block:active {
     text-overflow: ellipsis;
 }
 
-/* Responsive: on narrow screens allow blocks to take full width */
 @media screen and (max-width: 560px) {
     .description_block {
         width: calc(100% - 32px);
@@ -1190,7 +1189,6 @@ link-block:hover, link-block:active {
     }
 }
 
-/* Ensure pointer cursor on hover/focus for link blocks and their children */
 link-block,
 link-block:focus,
 link-block:hover,
@@ -1200,7 +1198,6 @@ link-block:hover,
     cursor: pointer;
 }
 
-/* Ensure nested elements don't override cursor */
 .description_block * {
     cursor: inherit;
 }
@@ -1387,12 +1384,12 @@ modal_button_list {
 }
 
 
-/* Pop 弹窗 */
+/* Pop */
 .pop_area {
     align-items: center;
     bottom: 40px;
     display: flex;
-    flex-direction: column-reverse; /* 让新消息从下往上排 */
+    flex-direction: column-reverse;
     left: 50%;
     overflow: hidden;
     pointer-events: none;
@@ -1440,8 +1437,8 @@ modal_button_list {
     color: #000000;
 }
 
+/* Slider */
 
-/* Slider 滑块 */
 .slider_content {
     align-items: center;
     display: flex;
@@ -1456,10 +1453,10 @@ modal_button_list {
     border: 2px solid #1E1E1F;
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.4), inset -2px -2px rgba(255, 255, 255, 0.2);
     cursor: pointer;
-    height: 8px; /* 进度条高度 */
+    height: 8px;
     margin: 6px;
-    position: relative; /* 相对定位,用于子元素绝对定位的参考 */
-    width: 100%; /* 进度条宽度 */
+    position: relative;
+    width: 100%;
 }
 
 .slider_process {
@@ -1478,9 +1475,9 @@ modal_button_list {
     border: 2px solid #1E1E1F;
     box-shadow: inset 0 -4px #58585A, inset 2px 2px rgba(255, 255, 255, 0.6), inset -2px -6px rgba(255, 255, 255, 0.4);
     height: 28px;
-    position: absolute; /* 相对于包含它的.slider元素绝对定位 */
-    top: 50%; /* 滑块垂直居中 */
-    transform: translate(-50%, -50%); /* 水平和垂直居中 */
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
     transition: left 100ms linear;
     width: 28px;
     z-index: 1;
@@ -1491,12 +1488,12 @@ modal_button_list {
     box-shadow: inset 0 -4px #58585A, inset 2px 2px rgba(255, 255, 255, 0.8), inset -2px -6px rgba(255, 255, 255, 0.6);
 }
 
-.slider_segment { /* Set Slider的分段线样式 */
+.slider_segment { /* Set Slider */
     background-color: #1E1E1F;
     height: 8px;
     position: absolute;
-    top: 50%; /* 分段线垂直居中 */
-    transform: translateY(-50%); /* 分段线垂直居中 */
+    top: 50%;
+    transform: translateY(-50%);
     width: 2px;
 }
 
@@ -1535,8 +1532,8 @@ modal_button_list {
     box-shadow: inset 0 -4px #B0B1B5, inset 2px 2px rgba(255, 255, 255, 0.6), inset -2px -6px rgba(255, 255, 255, 0.4);
 }
 
+/* Switch */
 
-/* Switch 开关 */
 .switch_content {
     margin: 6px;
 }
@@ -1550,7 +1547,7 @@ modal_button_list {
 }
 
 .normal_switch {
-    background: linear-gradient(to right, #3C8527 50%, #8C8D90 50%); /* 左半部分绿色,右半部分灰色 */
+    background: linear-gradient(to right, #3C8527 50%, #8C8D90 50%);
     border: 2px solid #1E1E1F;
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.2), inset -2px -2px rgba(255, 255, 255, 0.1);
 }
@@ -1651,8 +1648,8 @@ modal_button_list {
     left: 28px;
 }
 
-
 /* Tag */
+
 .tag_area {
     align-items: center;
 }
@@ -1689,7 +1686,8 @@ modal_button_list {
 }
 
 
-/* TextField文本框 */
+/* TextField */
+
 .text_field_container {
     display: flex;
     height: auto;
@@ -1713,7 +1711,7 @@ text-field {
     background-color: #313233;
     border: 2px solid #1E1E1F;
     box-shadow: inset 0 4px #242425;
-    box-sizing: border-box; /* 包括内边距和边框 */
+    box-sizing: border-box;
     caret-color: #6CC349;
     color: #FFFFFF;
     cursor: text;
@@ -1746,7 +1744,7 @@ text-field {
     font-size: 14px;
     height: 23px;
     left: 10px;
-    pointer-events: none; /* 允许点击穿透 */
+    pointer-events: none;
     position: absolute;
     top: 11px;
     transition: opacity 0.2s ease;
@@ -1762,4 +1760,123 @@ text-field {
 
 .input_btn {
     width: 120px;
+}
+
+/* Article */
+
+article_title {
+    color: #FFFFFF;
+    display: block;
+    font-family: "Minecraft Seven", sans-serif;
+    font-size: 21px;
+    height: auto;
+    margin: 15px;
+}
+
+article_date, article_subtitle {
+    display: block;
+    font-family: "Minecraft Seven", sans-serif;
+    font-size: 18px;
+    height: auto;
+    margin: 10px;
+}
+
+article_detail {
+    display: block;
+    font-family: "NotoSans Bold", sans-serif;
+    margin: 0 6px;
+    text-align: left;
+}
+
+article_note {
+    background-color: rgba(46, 107, 229, 0.1);
+    border-left: 6px solid #2E6BE5;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 6px 0;
+    padding: 10px;
+}
+
+article_list_title {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 6px solid #FFFFFF;
+    display: block;
+    font-size: 17px;
+    margin: 10px 0;
+    padding: 4px 0 4px 10px;
+}
+
+article_list {
+    display: block;
+    margin: 10px 0;
+    padding-left: 16px;
+    position: relative;
+}
+
+article_list:before {
+    background-color: #FFFFFF;
+    content: "";
+    height: 6px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+}
+
+article_list_l2 {
+    display: block;
+    margin: 10px 0;
+    padding-left: 32px;
+    position: relative;
+}
+
+article_list_l2:before {
+    background-color: #FFFFFF;
+    content: "";
+    height: 6px;
+    left: 16px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 6px;
+}
+
+article_list_l3 {
+    display: block;
+    margin: 10px 0;
+    padding-left: 48px;
+    position: relative;
+}
+
+article_list_l3:before {
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    content: "";
+    height: 6px;
+    left: 32px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+}
+
+article_list_l4 {
+    display: block;
+    margin: 10px 0;
+    padding-left: 60px;
+    position: relative;
+}
+
+article_list_l4:before {
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    content: "";
+    height: 6px;
+    left: 48px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 6px;
 }

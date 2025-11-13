@@ -97,6 +97,19 @@
             gap: 6px;
         }
     </style>
+    <script defer>
+        const audios = {};
+
+        function registerAudio(name, path) {
+            const audio = new Audio(path);
+            audio.preload = 'auto';
+            audio.load();
+            audios[name] = audio;
+        }
+
+        registerAudio('click', './sounds/click.ogg');
+        registerAudio('button', './sounds/button.ogg');
+    </script>
     <title>MCDOC</title>
 </head>
 
@@ -133,14 +146,17 @@
                 MCDOC
             </div>
         </div>
-        <div class="header_right">
-            <div class="header_item header_item_right" onclick="playSoundType(this);openLink('https://github.com/Spectrollay/OreUI');">
-                <img alt="" class="header_right_icon" src="./images/Github.png"/>
+            <div class="header_right">
+                <div class="header_item header_item_right" onclick="playSoundType(this);window.open('https://github.com/XtronXI/pages','_blank');">
+                    <img alt="" class="header_right_icon" src="./images/Github.png"/>
+                </div>
+                <div class="header_item header_item_right" onclick="playSoundType(this);window.open('https://discord.gg/GHaKtJCvgp','_blank');">
+                    <img alt="" class="header_right_icon" src="./images/Discord.png"/>
+                </div>
+                <div class="header_item header_item_right" onclick="playSoundType(this);window.open('https://reddit.com/r/OpenM/','_blank');">
+                    <img alt="" class="header_right_icon" src="./images/Reddit.png"/>
+                </div>
             </div>
-            <div class="header_item header_item_right" onclick="playSoundType(this);openLink('https://discord.gg/test');">
-                <img alt="" class="header_right_icon" src="./images/Enchanters_Tome_MCD.png"/>
-            </div>
-        </div>
     </header>
     <display-body>
         <scroll-view class="main_scroll_view">
@@ -212,20 +228,22 @@
         <scroll-container class="secondary_scroll_container">
             <div class="sidebar_content scroll_container">
                 <div class="sidebar_list">
-                    <a class="sidebar_item" href="./index.html#header_notice">版本库信息</a>
-                    <a class="sidebar_item" href="./index.html#bedrock_edition">基岩版</a>
-                    <a class="sidebar_item" href="./index.html#pocket_edition">携带版</a>
-                    <a class="sidebar_item" href="./index.html#education_edition">教育版</a>
-                    <a class="sidebar_item" href="./index.html#trial">试玩版</a>
-                    <a class="sidebar_item" href="./index.html#demo">演示版</a>
-                    <a class="sidebar_item" href="./index.html#more_edition">更多版本</a>
-                    <a class="sidebar_item" href="./index.html#footer_notice">版本库须知</a>
+                    <a class="sidebar_item">placeholder</a>
+                    <a class="sidebar_item" href="./marketplace.html">Marketplace</a>
+                    <a class="sidebar_item" href="./miscellaneous.html">Miscellaneous</a>
+                    <a class="sidebar_item" href="https://openm.mcdoc.site/">OpenM Project</a>
+                    <a class="sidebar_item">Guides</a>
+                    <a class="sidebar_item"><article_list>Windows</article_list></a>
+                    <a class="sidebar_item" href="./guides/unban-your-account.html"><article_list_l2>Unban Your Account</article_list_l2></a>
+                    <a class="sidebar_item" href="./troubleshooting.html"><article_list>Troubleshooting</article_list></a>
+                    <a class="sidebar_item" href="./legal/privacy.html">Privacy Policy </a>
+                    <a class="sidebar_item" href="./legal/dmca.html">DMCA</a>
+                    <a class="sidebar_item" href="./credits.html">Credits</a>
                 </div>
                 <div class="sidebar_info">
                     <div class="sidebar_detail_title" id="sidebar_bottom_title"></div>
-                    <div class="sidebar_detail" id="sidebar_bottom_detail1"></div>
                     <div class="sidebar_detail">
-                        <custom-button data="sidebar|normal|||false||" js="clickedSidebarBottomBtn();" text="官方网站"></custom-button>
+                        <custom-button data="sidebar|normal|||false||" js="clickedSidebarBottomBtn();" text="Report"></custom-button>
                     </div>
                 </div>
             </div>
@@ -237,10 +255,7 @@
     </scroll-view>
 </div>
 <div class="overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
-<!-- Pop弹窗 -->
 <div class="pop_area" id="pop_area"></div>
-
-<!-- 提示弹窗 -->
 <div class="overlay" id="overlay_alert_modal"></div>
 <modal_area id="alert_modal" style="display: none;"></modal_area>
 

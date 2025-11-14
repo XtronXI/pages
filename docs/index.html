@@ -61,7 +61,7 @@
 </div>
 
 <body>
-<dispaly-area>
+<display-area>
     <header>
         <div class="header_logo">
             <div class="header_title">OreUI 设计</div>
@@ -82,13 +82,46 @@
                 <custom-scrollbar-thumb></custom-scrollbar-thumb>
             </custom-scrollbar>
         </scroll-view>
+        </div>
+        <!--侧边栏-->
+        <div class="new sidebar" id="sidebar">
+            <scroll-view>
+                <scroll-container class="secondary_scroll_container">
+                    <div class="sidebar_content scroll_container">
+                        <div class="sidebar_header">
+                            <div class="sidebar_detail_title">版本库</div>
+                        </div>
+                        <div class="sidebar_list">
+                            <a class="sidebar_item" href="javascript:void(0);">
+                                <article_list>介绍</article_list>
+                            </a>
+                            <a class="sidebar_item" href="./index_new.html#latest_news">
+                                <article_list_l2>最新动态</article_list_l2>
+                            </a>
+                        </div>
+                    </div>
+                </scroll-container>
+                <custom-scrollbar class="secondary_custom_scrollbar">
+                    <custom-scrollbar-track></custom-scrollbar-track>
+                    <custom-scrollbar-thumb></custom-scrollbar-thumb>
+                </custom-scrollbar>
+            </scroll-view>
+        </div>
     </display-body>
-</dispaly-area>
+</display-area>
+<!-- 除了顶栏 -->
+<div class="new overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
+
+<!-- Pop弹窗 -->
+<div class="pop_area" id="pop_area"></div>
+
+<!-- 提示弹窗 -->
+<div class="overlay" id="overlay_alert_modal"></div>
+<modal_area id="alert_modal" style="display: none;"></modal_area>
 </body>
 
 <script src="./javascript/loading.js"></script>
 <script src="./library/accessibility.js"></script>
 <script src="./javascript/public_script.js"></script>
 <script src="./javascript/oreui.js"></script>
-
 </html>

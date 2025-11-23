@@ -221,6 +221,14 @@
     width: 80px;
 }
 
+.header_notice_title, .choose_edition_title, .footer_notice_title {
+    font-size: 28px;
+}
+
+.header_notice_body, .footer_notice_body {
+    justify-content: center;
+}
+
 .repository_logo_area {
     align-items: center;
     display: flex;

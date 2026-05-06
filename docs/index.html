@@ -1,9 +1,9 @@
 <!-- * @WebUI: OreUI V2 -->
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 
 <head>
-    <base href="../"><!-- 项目根路径 -->
+    <base href="../">
     <meta charset="UTF-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta content="webkit" name="renderer">
@@ -38,7 +38,6 @@
 <body>
 <display-area>
     <header>
-        
         <div class="header_left">
             <div class="header_item header_item_left with_menu" id="back" onclick="clickedBack();">
                 <img alt="" class="header_left_icon" id="back_icon" src="./images/Back.png"/>
@@ -120,13 +119,13 @@
                                 </link-block>
                             </div>
                             <div class="wrap_flex">
-                                <link-block role="link" onclick="playSound('click');openLink('https://www.mcsmmegathread.org/');" aria-label="Story Mode">
+                                <link-block role="link" onclick="playSound('click');openLinkInNewTab('https://www.mcsmmegathread.org/');" aria-label="Story Mode">
                                     <div class="link_title">
                                         <img alt="Story Mode" class="link_title_img" src="./images/Story_Mode_icon.png"/>
                                         Story Mode
                                     </div>
                                 </link-block>
-                                <link-block role="link" onclick="playSound('click');openLink('https://minecraftlegacy.com/');" aria-label="Legacy Console">
+                                <link-block role="link" onclick="playSound('click');openLinkInNewTab('https://minecraftlegacy.com/');" aria-label="Legacy Console">
                                     <div class="link_title">
                                         <img alt="Legacy Console" class="link_title_img" src="./images/Crafting_Table.png"/>
                                         Legacy Console
@@ -182,13 +181,13 @@
         -->
     </display-body>
 </display-area>
-<!-- 除了顶栏 -->
+<!-- Exluding the Top Bar -->
 <div class="new overlay_main" id="overlay_main" onclick="clickedOverlay();"></div>
 
-<!-- Pop弹窗 -->
+<!-- Pop-Up Window -->
 <div class="pop_area" id="pop_area"></div>
 
-<!-- 提示弹窗 -->
+<!-- Prompt Window -->
 <div class="overlay" id="overlay_alert_modal"></div>
 <modal_area id="alert_modal" style="display: none;"></modal_area>
 </body>

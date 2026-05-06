@@ -66,10 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // 跳转判定
 let isNavigating = false;
-window.addEventListener("pageshow", (event) => {
-    // Runs on normal load AND bfcache restore
-    isNavigating = false;
-});
 
 function ifNavigating(way, url) {
     if (isNavigating) {
@@ -77,7 +73,9 @@ function ifNavigating(way, url) {
     }
     isNavigating = true; // 设置状态,正在跳转
     if (way === 'direct') {
-        window.location.href = url;
+        setTimeout(() => {
+            window.location.href = url;
+        }, 100);
     } else if (way === 'open') {
         setTimeout(function () {
             window.open(url);
@@ -188,13 +186,13 @@ let userVolume = 1;
 
 // 音效设置
 const soundPaths = {
-    click: rootPath + '/sounds/click.ogg',
-    button: rootPath + '/sounds/button.ogg',
-    pop: rootPath + '/sounds/pop.ogg',
-    hide: rootPath + '/sounds/hide.ogg',
-    open: rootPath + '/sounds/drawer_open.ogg',
-    close: rootPath + '/sounds/drawer_close.ogg',
-    toast: rootPath + '/sounds/toast.ogg'
+    click: './sounds/click.ogg',
+    button: './sounds/button.ogg',
+    pop: './sounds/pop.ogg',
+    hide: './sounds/hide.ogg',
+    open: './sounds/drawer_open.ogg',
+    close: './sounds/drawer_close.ogg',
+    toast: './sounds/toast.ogg'
 };
 
 function playSound(type) {
@@ -220,7 +218,7 @@ function playSoundType(button) {
     if (button.classList.contains('normal_btn') || button.classList.contains('red_btn') || button.classList.contains('sidebar_btn') || (button.classList.contains('tab_bar_btn') && button.classList.contains('no_active')) || button.classList.contains('close_btn') || button.classList.contains('header_item')) {
         playSound('click');
     } else if (button.classList.contains('green_btn')) {
-        playSound('button');
+        playSound('button') ;
     }
 }
 
@@ -243,19 +241,24 @@ function clickedBack() {
     }, 600);
 }
 
-// 打开网页
 function openLink(url) {
-    if (url.includes('mcarc.github.io')) { // TODO 在移除全部相关链接后删除判定
-        ifNavigating('direct', '/minecraft_repository_test/default/error_not-found.html');
+    if (url.includes('xtronxi.github.io')) {
+        ifNavigating('direct', 'about:blank');
     } else {
         ifNavigating('direct', url);
     }
 }
 
-function delayedOpenLink(url) { // TODO 在页面完成迭代后移除
-    setTimeout(function () {
+function openLinkInNewTab(url) {
+    if (url.includes('xtronxi.github.io')) {
+        ifNavigating('open', 'about:blank');
+    } else {
         ifNavigating('open', url);
-    }, 1500);
+    }
+}
+
+function delayedOpenLink(url) {
+    ifNavigating('delayed_open', url);
 }
 
 function launchApplication(deeplink) {

@@ -66,6 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // 跳转判定
 let isNavigating = false;
+window.addEventListener("pageshow", (event) => {
+    // Runs on normal load AND bfcache restore
+    isNavigating = false;
+});
 
 function ifNavigating(way, url) {
     if (isNavigating) {

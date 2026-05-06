@@ -220,6 +220,10 @@ function playSoundType(button) {
     }
 }
 
+function mainPage() {
+    ifNavigating('jump', rootPath);
+}
+
 // 点击返回按钮事件
 function clickedBack() {
     logManager.log("点击返回");

@@ -12,14 +12,14 @@
     <link href="./stylesheet/loading_mask.css" rel="stylesheet">
     <link href="./stylesheet/public_style.css" rel="stylesheet">
     <link href="./stylesheet/oreui.css" rel="stylesheet">
-    <title>设计文档 | OreUI</title>
+    <title>MCDOC | Getting Started</title>
 </head>
 
 <div class="loading_mask" id="loading_mask">
     <div>
         <div class="spinner"><img alt="" id="spinner_img" src="./images/Loading_white.gif"/></div>
         <div class="spinner">
-            <div class="spinner"><span class="spinner_text">生成世界中</span></div>
+            <div class="spinner"><span class="spinner_text">Loading...</span></div>
         </div>
         <noscript>
             <style>
@@ -29,7 +29,7 @@
             </style>
             <div class="spinner"><img alt="" id="spinner_img_error" src="./images/ErrorMessage.png"/></div>
             <div class="spinner">
-                <div class="spinner"><span class="spinner_text_error">页面无法加载: 当前环境不支持或已禁用脚本.<br>请更换支持脚本的环境或在设置中允许脚本后访问本站.</span></div>
+                <div class="spinner"><span class="spinner_text_error">Page failed to load: The current environment does not support scripts, or scripts have been disabled.<br>Please switch to an environment that supports scripts, or enable scripts in your settings before accessing this site.</span></div>
             </div>
         </noscript>
     </div>
@@ -38,59 +38,112 @@
 <body>
 <display-area>
     <header>
+        
+        <div class="header_left">
+            <div class="header_item header_item_left with_menu" id="back" onclick="clickedBack();">
+                <img alt="" class="header_left_icon" id="back_icon" src="./images/Back.png"/>
+            </div>
+            <div class="header_item header_item_left" id="home" onclick="playSoundType(this);mainPage();">
+                <img alt="" class="header_left_icon" src="./images/Home.png"/>
+            </div>
+        </div>
         <div class="header_logo">
-            <div class="header_title">OreUI 设计</div>
+            <div class="header_title">
+                <img alt="MCDOC Icon" src="./images/Enchanters_Tome_MCD.png" style="max-height:40px; max-width:100%; width:auto; height:auto; object-fit:contain; display:block;"/>
+                MCDOC
+            </div>
+        </div>
+        <div class="header_right">
+            <div class="header_item header_item_right" onclick="playSoundType(this);window.open('https://github.com/XtronXI/pages','_blank');">
+                <img alt="" class="header_right_icon" src="./images/Github.png"/>
+            </div>
+            <div class="header_item header_item_right" onclick="playSoundType(this);window.open('https://discord.gg/GHaKtJCvgp','_blank');">
+                <img alt="" class="header_right_icon" src="./images/Discord.png"/>
+            </div>
+            <div class="header_item header_item_right" onclick="playSoundType(this);window.open('https://reddit.com/r/OpenM/','_blank');">
+                <img alt="" class="header_right_icon" src="./images/Reddit.png"/>
+            </div>
         </div>
     </header>
     <display-body>
-        <scroll-view class="main_scroll_view with_sidebar">
+        <scroll-view class="main_scroll_view">
             <scroll-container class="primary_scroll_container">
-                <main class="main_content_center scroll_container" id="main">
+                <main class="scroll_container" id="main">
+                    <div class="block_spacing"></div>
                     <div class="block" id="header_notice">
                         <div class="main main-header">
-                            <div class="header_notice_title">
-                                <div class="repository_logo_area">Getting Started</div>
-                            </div>
+                            <div class="header_notice_title">Getting Started</div>
                         </div>
+                    </div>
+                    <div class="block_spacing"></div>
+                    <div class="block" id="welcome_message">
                         <div class="main header_notice_body">
                             <div class="description2">
-                                <div class="title1">Welcome to MCDOC</div>
-                                <p>Welcome to MCDOC, your ultimate resource for unlocking the full potential of Minecraft. Whether you're looking to access the game without restrictions, uncover hidden items, or customize the game's behavior, MCDOC is your gateway to a variety of powerful tools and unlockers.</p>
-                                <p>At MCDOC, we provide an extensive index of resources that allow you to dive deeper into Minecraft, from unlocking premium content to modifying the game’s core mechanics. Our goal is to make it easier for you to find the tools you need to explore Minecraft in ways you may not have thought possible.</p>
-                                <p>Please be aware that MCDOC serves as a directory of resources found across the internet. We do not host or distribute any of the content ourselves, but rather, we provide links to external sites where these tools and unlockers can be accessed. We encourage responsible use of these resources and remind you to respect the Minecraft community's values.</p>
-                                <p>Thank you for visiting MCDOC. Explore our collection and take your Minecraft experience to a new level with the tools and unlockers we’ve gathered for you.</p>
-                                <p>Happy crafting! 🛠️</p>
+                                <div class="title1 download_block_title">Welcome to MCDOC</div>
+                                <div class="download_block_description">This is an extensive guide to help you get Minecraft, of any version/edition, for free. The resources here are safe and verified.</div>
                             </div>
                         </div>
+                    </div>
+                    <div class="block" id="editions">
                         <div class="main header_notice_body">
-                            <div class="description2">
-                                <table class="notice_table">
-                                    <tr>
-                                        <th colspan="2">
-                                            <div class="title3">Emoji Legend:</div>
-                                        </th>
-                                </tr>
-                                <tr>
-                                       <td class="left_table">
-                                            <div class="description2">⭐</div>
-                                        </td>
-                                        <td class="right_table">
-                                            <div class="descriptionl">
-                                                Items or that are highly recommended, and/or preferred overall.
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left_table">
-                                            <div class="description2">🌐</div>
-                                        </td>
-                                        <td class="right_table">
-                                            <div class="descriptionl">
-                                                Used to denote comprehensive indexes or guides, similar to those found in FMHY or the r/piracy megathread
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
+                            <div class="link_title">Select the Edition you want to play</div>
+                            <div class="wrap_flex">
+                                <link-block role="link" onclick="playSound('click');openLink('./bedrock');" aria-label="Bedrock">
+                                    <div class="link_title">
+                                        <img alt="Bedrock" class="link_title_img" src="./images/Bedrock_icon.png"/>
+                                        Bedrock
+                                    </div>
+                                </link-block>
+                                <link-block role="link" onclick="playSound('click');openLink('./java');" aria-label="Java">
+                                    <div class="link_title">
+                                        <img alt="Java" class="link_title_img" src="./images/Java_icon.png"/>
+                                        Java
+                                    </div>
+                                </link-block>
+                                <link-block role="link" onclick="playSound('click');openLink('./dungeons');" aria-label="Dungeons">
+                                    <div class="link_title">
+                                        <img alt="Dungeons" class="link_title_img" src="./images/Dungeons_icon.png"/>
+                                        Dungeons
+                                    </div>
+                                </link-block>
+                                <link-block role="link" onclick="playSound('click');openLink('./legends');" aria-label="Legends">
+                                    <div class="link_title">
+                                        <img alt="Legends" class="link_title_img" src="./images/Legends_icon.png"/>
+                                        Legends
+                                    </div>
+                                </link-block>
+                                <link-block role="link" onclick="playSound('click');openLink('./education');" aria-label="Education">
+                                    <div class="link_title">
+                                        <img alt="Education" class="link_title_img" src="./images/Education_icon.png"/>
+                                        Education
+                                    </div>
+                                </link-block>
+                            </div>
+                            <div class="wrap_flex">
+                                <link-block role="link" onclick="playSound('click');openLink('https://www.mcsmmegathread.org/');" aria-label="Story Mode">
+                                    <div class="link_title">
+                                        <img alt="Story Mode" class="link_title_img" src="./images/Story_Mode_icon.png"/>
+                                        Story Mode
+                                    </div>
+                                </link-block>
+                                <link-block role="link" onclick="playSound('click');openLink('https://minecraftlegacy.com/');" aria-label="Legacy Console">
+                                    <div class="link_title">
+                                        <img alt="Legacy Console" class="link_title_img" src="./images/Crafting_Table.png"/>
+                                        Legacy Console
+                                    </div>
+                                </link-block>
+                                <link-block role="link" onclick="playSound('click');openLink('./earth');" aria-label="Earth">
+                                    <div class="link_title">
+                                        <img alt="Earth" class="link_title_img" src="./images/Earth_icon.png"/>
+                                        Earth
+                                    </div>
+                                </link-block>
+                                <link-block role="link" onclick="playSound('click');openLink('./china');" aria-label="China">
+                                    <div class="link_title">
+                                        <img alt="China" class="link_title_img" src="./images/China_icon.png"/>
+                                        China
+                                    </div>
+                                </link-block>
                             </div>
                         </div>
                     </div>
@@ -102,7 +155,7 @@
             </custom-scrollbar>
         </scroll-view>
         </div>
-        <!--侧边栏-->
+        <!--
         <div class="new sidebar" id="sidebar">
             <scroll-view>
                 <scroll-container class="secondary_scroll_container">
@@ -126,6 +179,7 @@
                 </custom-scrollbar>
             </scroll-view>
         </div>
+        -->
     </display-body>
 </display-area>
 <!-- 除了顶栏 -->

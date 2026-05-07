@@ -28,7 +28,6 @@ const parts = currentPagePath.split('/').filter(Boolean);
 let rootPath = '/' + (parts.length > 0 ? parts[0] : '');
 const slashCount = (currentPagePath.match(/\//g) || []).length;
 
-// 日志管理器
 window.logManager = {
     log: function (message, level = 'info') {
         const isLocalEnv = hostPath.includes('localhost') || rootPath.includes('_test');
@@ -36,20 +35,20 @@ window.logManager = {
         const logFunction = console[level] || console.log;
         if (level === 'error') {
             logFunction.call(console, formattedMessage);
-            console.trace(); // 输出堆栈追踪
+            console.trace();
         } else if (isLocalEnv) {
             logFunction.call(console, formattedMessage);
-            console.trace(); // 在测试和开发环境中也输出
+            console.trace();
         }
     }
 };
 
-// 检测浏览器是否处于夜间模式
+// Night Mode Detection
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.body.classList.add('no-dark-mode'); // 覆盖夜间模式下的样式
+    document.body.classList.add('no-dark-mode'); // Override dark mode with light mode styles
 }
 
-// 响应式设计动画
+// Responsive Scroll View Animation
 document.addEventListener('DOMContentLoaded', function () {
     const mainScrollView = document.querySelector('.main_scroll_view.with_sidebar');
     if (mainScrollView) {
@@ -59,19 +58,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// 点击顶栏回到顶部
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.header_logo').addEventListener('click', scrollToTop);
 });
 
-// 跳转判定
 let isNavigating = false;
 
 function ifNavigating(way, url) {
     if (isNavigating) {
-        return; // 防止重复点击
+        return; // Prevent duplicate clicks
     }
-    isNavigating = true; // 设置状态,正在跳转
+    isNavigating = true; // Set to Redirecting
     if (way === 'direct') {
         setTimeout(() => {
             window.location.href = url;
@@ -80,81 +77,84 @@ function ifNavigating(way, url) {
         setTimeout(function () {
             window.open(url);
             setTimeout(function () {
-                isNavigating = false; // 重置状态,允许下一次点击
+                isNavigating = false; // Reset state, allow next click
             }, 100);
         }, 100);
     } else if (way === 'delayed_open') {
         setTimeout(function () {
             window.open(url);
             setTimeout(function () {
-                isNavigating = false; // 重置状态,允许下一次点击
+                isNavigating = false;
             }, 100);
         }, 1500);
     } else if (way === 'jump') {
         setTimeout(function () {
             window.location.href = url;
             setTimeout(function () {
-                isNavigating = false; // 重置状态,允许下一次点击
+                isNavigating = false;
             }, 100);
         }, 600);
     }
 }
 
-logManager.log("浏览器UA: " + navigator.userAgent)
-logManager.log("完整路径: " + currentURL);
-logManager.log("来源: " + hostPath);
-logManager.log("根路径: " + rootPath);
-logManager.log("当前路径: " + currentPagePath);
-logManager.log("当前位于" + (slashCount - 1) + "级页面");
+// --------Start of logManager----------
+
+logManager.log("Browser User Agent: " + navigator.userAgent)
+logManager.log("Current URL: " + currentURL);
+logManager.log("Source: " + hostPath);
+logManager.log("Root Path: " + rootPath);
+logManager.log("Current Path: " + currentPagePath);
+logManager.log("Currently on level " + (slashCount - 1) + " page");
 
 if (hostPath.includes('file:///')) {
-    logManager.log("当前运行在本地文件");
+    logManager.log("Currently running in local file");
 } else if (hostPath.includes('localhost')) {
-    logManager.log("当前运行在本地服务器");
+    logManager.log("Currently running in local server");
 } else {
-    logManager.log("当前运行在" + hostPath);
-    // 禁用右键菜单
+    logManager.log("Currently running in " + hostPath);
+    // Disable right-click menu
     document.addEventListener('contextmenu', function (event) {
         event.preventDefault();
     });
-    // 禁用长按菜单
+    // Disable long-press menu on mobile devices
     document.addEventListener('touchstart', function (event) {
         event.preventDefault();
     });
 }
 if (rootPath.includes('_test')) {
     document.body.classList.add('test');
-    logManager.log("当前为开发环境");
+    logManager.log("Currently in development environment");
 } else {
-    logManager.log("当前为发布环境");
+    logManager.log("Currently in production environment");
 }
 
-// 输出错误日志
+// Global error handling
 window.addEventListener('error', function (event) {
-    logManager.log("错误: " + event.message, 'error');
+    logManager.log("Error: " + event.message, 'error');
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    logManager.log("页面加载完成!");
+    logManager.log("Page loaded successfully!");
 });
 
 const startTime = new Date().getTime();
 window.addEventListener('load', function () {
     const endTime = new Date().getTime();
     let loadTime = endTime - startTime;
-    logManager.log("页面加载耗时: " + loadTime + "ms");
+    logManager.log("Page load time: " + loadTime + "ms");
 });
+// --------End of logManager----------
 
-// 页面加载时缓存音效文件
+// Audio Caching and Playback
 const cacheName = 'audio-cache';
 window.onload = async function () {
     if ('caches' in window) {
         try {
             const cache = await caches.open(cacheName);
             await cache.addAll([soundPaths['click'], soundPaths['button'], soundPaths['open'], soundPaths['close']]);
-            logManager.log("音效文件已缓存!");
+            logManager.log("Sound effect files cached!");
         } catch (error) {
-            logManager.log("音效文件缓存失败: " + error, 'error');
+            logManager.log("Sound effect files caching failed: " + error, 'error');
         }
     }
 };
@@ -167,24 +167,24 @@ async function getCachedAudio(filePath) {
             if (response) {
                 const blob = await response.blob();
                 const audioURL = URL.createObjectURL(blob);
-                logManager.log("从缓存获取音效文件");
-                return new Audio(audioURL); // 返回缓存中的音效
+                logManager.log("Sound effect file retrieved from cache");
+                return new Audio(audioURL); // Return audio from cache
             } else {
-                logManager.log("缓存中未找到音效文件,尝试直接从链接加载");
+                logManager.log("Sound effect file not found in cache, attempting to load directly from link");
             }
         } catch (error) {
-            logManager.log("从缓存获取音效文件失败: " + error, 'error');
+            logManager.log("Failed to retrieve sound effect file from cache: " + error, 'error');
         }
     } else {
-        logManager.log("浏览器不支持缓存API,直接加载音效");
+        logManager.log("Browser does not support cache API, loading sound effect directly");
     }
-    // 如果缓存获取失败直接返回网络资源
+    // If cache retrieval fails, load directly from the link
     return new Audio(filePath);
 }
 
 let userVolume = 1;
 
-// 音效设置
+// Sound effect settings
 const soundPaths = {
     click: './sounds/click.ogg',
     button: './sounds/button.ogg',
@@ -198,22 +198,22 @@ const soundPaths = {
 function playSound(type) {
     const soundPath = soundPaths[type];
     if (!soundPath) {
-        logManager.log(`未知的音效类型: ${type}`, 'error');
+        logManager.log(`Unknown sound effect type: ${type}`, 'error');
         return;
     }
 
     getCachedAudio(soundPath).then(audio => {
         audio.play().then(() => {
-            logManager.log(`${type}音效播放成功!`);
+            logManager.log(`${type} sound effect played successfully!`);
         }).catch(error => {
-            logManager.log(`${type}音效播放失败: ${error}`, 'error');
+            logManager.log(`${type} sound effect failed to play: ${error}`, 'error');
         });
     }).catch(error => {
-        logManager.log(`获取${type}音效失败: ${error}`, 'error');
+        logManager.log(`Failed to get ${type} sound effect: ${error}`, 'error');
     });
 }
 
-// 按键音效
+// Button Sound Effects
 function playSoundType(button) {
     if (button.classList.contains('normal_btn') || button.classList.contains('red_btn') || button.classList.contains('sidebar_btn') || (button.classList.contains('tab_bar_btn') && button.classList.contains('no_active')) || button.classList.contains('close_btn') || button.classList.contains('header_item')) {
         playSound('click');
@@ -226,16 +226,15 @@ function mainPage() {
     ifNavigating('jump', rootPath);
 }
 
-// 点击返回按钮事件
 function clickedBack() {
-    logManager.log("点击返回");
+    logManager.log("Click back button");
     playSound('click');
     setTimeout(function () {
         if (window.history.length <= 1) {
-            logManager.log("关闭窗口");
+            logManager.log("Closing Window...");
             window.close();
         } else {
-            logManager.log("返回上一级页面");
+            logManager.log("Returning to previous page");
             window.history.back();
         }
     }, 600);
@@ -265,15 +264,13 @@ function launchApplication(deeplink) {
     window.location.assign(deeplink);
 }
 
-// 滚动到网页顶部
 function scrollToTop() {
     mainScrollContainer.scrollTo({
         top: 0, behavior: 'smooth'
     });
-    console.log("成功执行回到顶部操作");
+    console.log("Successfully executed scroll to top operation");
 }
 
-// 跳转到网页顶部
 function toTop() {
     mainScrollContainer.scrollTo({
         top: 0, behavior: 'instant'
@@ -292,33 +289,33 @@ function clickedOverlay() {
 
 let sidebarOpen = false;
 
-function toggleSidebar() { // 切换侧边栏状态
+function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     if (sidebarOpen) {
         playSound('close');
-        sidebar.style.left = -sidebar.offsetWidth + 'px'; // 隐藏到屏幕左侧
-        logManager.log("侧边栏执行收起操作");
+        sidebar.style.left = -sidebar.offsetWidth + 'px'; // Hide to left
+        logManager.log("Side panel executed collapse operation");
     } else {
         playSound('open');
-        sidebar.style.left = '0'; // 显示侧边栏
-        logManager.log("侧边栏执行展开操作");
+        sidebar.style.left = '0'; // Show side panel
+        logManager.log("Side panel executed expand operation");
     }
     sidebarOpen = !sidebarOpen;
-    logManager.log("更新侧边栏状态成功");
+    logManager.log("Successfully updated side panel status");
 }
 
 let overlayShow = false;
 
-function toggleOverlay() { // 切换遮罩
+function toggleOverlay() {
     const overlay_main = document.getElementById('overlay_main');
     if (overlayShow) {
         overlay_main.style.display = 'none';
-        logManager.log("遮罩成功隐藏");
+        logManager.log("Overlay successfully hidden");
     } else {
         overlay_main.style.display = 'block';
-        logManager.log("遮罩成功显示");
+        logManager.log("Overlay successfully shown");
     }
     overlayShow = !overlayShow;
-    logManager.log("更新遮罩状态成功");
+    logManager.log("Successfully updated overlay status");
 }
 

@@ -40,13 +40,13 @@
     display: flex;
     font-family: "NotoSans Bold", sans-serif;
     height: 100%;
-    left: -240px; /* NOTE 侧边栏的显示宽度 */
+    left: -240px; /* NOTE Display Width */
     overflow-x: hidden;
     overflow-y: hidden;
     position: absolute;
     top: 0;
     transition: left 0.6s, width 0.6s;
-    width: 238px; /* NOTE 侧边栏的宽度 */
+    width: 238px; /* NOTE True Width */
     z-index: 10;
 }
 
@@ -58,31 +58,15 @@
     display: block;
 }
 
-.sidebar.old { /* TODO 旧页面完成迭代后移除 */
-    height: calc(100% - 44px);
-    position: fixed;
-    top: 44px;
-}
-
 @media screen and (min-width: 1200px) {
     .sidebar.new {
         left: 0 !important;
-    }
-
-    .sidebar.old { /* TODO 旧页面完成迭代后移除 */
-        left: -240px; /* NOTE 侧边栏的显示宽度 */
     }
 }
 .secondary_scroll_container {
     height: 100%;
     top: 0;
     width: 100%;
-}
-
-.secondary_scroll_container.old { /* TODO 旧页面完成迭代后移除 */
-    height: calc(100% - 44px);
-    top: 44px;
-    width: 240px; /* NOTE 侧边栏的显示宽度 */
 }
 
 .sidebar a {
@@ -150,7 +134,7 @@
 }
 
 @media screen and (min-width: 1200px) {
-    .overlay_main.new { /* TODO 旧页面完成迭代后移除 */
+    .overlay_main.new { /* TODO Remove the old page after the iteration is complete. */
         display: none !important;
     }
 }

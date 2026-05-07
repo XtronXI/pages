@@ -73,19 +73,6 @@
             gap: 6px;
         }
     </style>
-    <script defer>
-        const audios = {};
-
-        function registerAudio(name, path) {
-            const audio = new Audio(path);
-            audio.preload = 'auto';
-            audio.load();
-            audios[name] = audio;
-        }
-
-        registerAudio('click', './sounds/click.ogg');
-        registerAudio('button', './sounds/button.ogg');
-    </script>
     <title>MCDOC</title>
 </head>
 

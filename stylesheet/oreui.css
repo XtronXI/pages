@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-/* 防止反色以杜绝出现奇怪的显示问题 */
+/* Prevent color inversion to eliminate strange display issues. */
 :root {
     color-scheme: light !important;
 }
@@ -31,7 +31,7 @@
     }
 }
 
-/* 自定义字体 */
+/* Custom Fonts */
 @font-face {
     font-family: 'Minecraft Ten';
     src: url("../fonts/Minecraft-Ten.otf") format('opentype');
@@ -67,18 +67,18 @@
     src: url("../fonts/NotoSans-Italic.ttf") format('truetype');
 }
 
-/* 页面选择事件 */
+/* Page Selection */
 ::selection {
     background-color: transparent;
     color: inherit;
 }
 
 * {
-    -webkit-tap-highlight-color: transparent; /* 禁用高亮 */
-    touch-action: manipulation; /* 禁用长按菜单 */
+    -webkit-tap-highlight-color: transparent; /* Prevent tap highlight */
+    touch-action: manipulation; /* Prevent long-press menu */
 }
 
-/* 总体样式 */
+/* Overall Styles */
 html {
     font-family: "NotoSans Bold", sans-serif;
     height: 100%;
@@ -148,7 +148,7 @@ header {
     transform: translateX(-50%);
 }
 
-/* 顶栏元素 */
+/* Top Bar Elements */
 .header_item, .header_logo {
     align-items: center;
     display: flex;
@@ -169,14 +169,14 @@ header {
     background-color: #D0D1D4;
 }
 
-/* 顶栏左侧按钮 */
+/* Top Bar Left Button */
 .header_item_left {
     border-right: 2px solid #A1A3A5;
     box-shadow: inset -2px 0 #FFFFFF;
     width: 42px;
 }
 
-/* 顶栏右侧按钮 */
+/* Top Bar Right Button */
 .header_item_right {
     border-left: 2px solid #FFFFFF;
     box-shadow: inset 2px 0 #A1A3A5;
@@ -195,7 +195,7 @@ header {
     background-color: unset;
 }
 
-/* 顶栏按钮图标 */
+/* Top Bar Button Icons */
 .header_left_icon, .header_right_icon {
     height: 32px;
 }
@@ -222,19 +222,19 @@ header {
     }
 }
 
-/* 标题区域 */
+/* Title Area */
 .title_icon {
     padding: 0 8px;
     width: 30px;
 }
 
-/* 标题图标 */
+/* Title Icon */
 .header_logo {
     flex: 1;
     width: 100%;
 }
 
-/* 标题文字 */
+/* Title Text */
 .header_title {
     align-items: center;
     display: flex;
@@ -245,7 +245,7 @@ header {
     height: 38px;
 }
 
-/* 主体框架 */
+/* Main Framework */
 display-body {
     display: flex;
     flex: 1;
@@ -266,8 +266,8 @@ scroll-view {
 
 @media screen and (min-width: 1200px) {
     .main_scroll_view.with_sidebar {
-        margin-left: 240px; /* NOTE 侧边栏的显示宽度 */
-        width: calc(100% - 240px); /* NOTE 要减去侧边栏的显示宽度 */
+        margin-left: 240px; /* NOTE Sidebar Display Width */
+        width: calc(100% - 240px); /* NOTE Width to Subtract Sidebar Display Width */
     }
 }
 
@@ -292,7 +292,7 @@ main {
     width: 100vw;
 }
 
-/* 主体块 */
+/* Main Block */
 .main {
     align-items: center;
     border-bottom: 2px solid #333334;
@@ -1078,6 +1078,7 @@ custom-dropdown .disabled_dropdown {
 }
 
 link-block {
+    background: #48494A;
     align-items: center;
     border: 2px solid #58585A;
     cursor: pointer;

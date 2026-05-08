@@ -214,7 +214,7 @@
     justify-content: center;
 }
 
-.repository_logo_area {
+.wiki_logo_area {
     align-items: center;
     display: flex;
     justify-content: center;
@@ -236,11 +236,11 @@
     text-align: center;
 }
 
-.download_block_title {
+.head_block_title {
     margin: 8px 16px;
 }
 
-.download_block_description {
+.head_block_description {
     color: rgba(255, 255, 255, 0.8);
     margin: 8px 16px;
     text-align: center;
@@ -248,20 +248,20 @@
 }
 
 @media screen and (min-width: auto) {
-    .download_block_description {
+    .head_block_description {
         transition: 0.6s;
         width: 380px;
     }
 }
 
 @media screen and (min-width: 1200px) {
-    .download_block_description.release_description {
+    .head_block_description.release_description {
         max-width: 510px;
         transition: none;
         width: max(380px, 30vw);
     }
 
-    .download_block_description.update_description {
+    .head_block_description.update_description {
         transition: 0.6s;
         width: 500px;
     }

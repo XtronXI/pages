@@ -113,7 +113,7 @@ display-area {
     height: 100%;
 }
 
-/* 顶部标题栏 */
+/* Top Bar */
 header {
     align-items: center;
     background-color: #E6E8EB;
@@ -148,7 +148,6 @@ header {
     transform: translateX(-50%);
 }
 
-/* Top Bar Elements */
 .header_item, .header_logo {
     align-items: center;
     display: flex;
@@ -169,14 +168,12 @@ header {
     background-color: #D0D1D4;
 }
 
-/* Top Bar Left Button */
 .header_item_left {
     border-right: 2px solid #A1A3A5;
     box-shadow: inset -2px 0 #FFFFFF;
     width: 42px;
 }
 
-/* Top Bar Right Button */
 .header_item_right {
     border-left: 2px solid #FFFFFF;
     box-shadow: inset 2px 0 #A1A3A5;
@@ -195,7 +192,6 @@ header {
     background-color: unset;
 }
 
-/* Top Bar Button Icons */
 .header_left_icon, .header_right_icon {
     height: 32px;
 }
@@ -228,13 +224,11 @@ header {
     width: 30px;
 }
 
-/* Title Icon */
 .header_logo {
     flex: 1;
     width: 100%;
 }
 
-/* Title Text */
 .header_title {
     align-items: center;
     display: flex;
@@ -286,6 +280,7 @@ scroll-container {
     width: 100%;
 }
 
+/* Main Text */
 main {
     color: #FFFFFF;
     min-width: 330px;
@@ -308,12 +303,10 @@ main {
     text-align: center;
 }
 
-/* 主体上下提示 */
 .main-header, .main-footer {
     font-family: "Minecraft Ten", sans-serif;
 }
 
-/* 加载中图标 */
 .loading_icon {
     height: 32px;
     padding: 10px;
@@ -330,8 +323,8 @@ a {
 .main_title {
     align-items: center;
     border-bottom: 2px solid #333334;
-    border-left: 0;
-    border-right: 0;
+    border-left: 2px solid #333334;
+    border-right: 2px solid #333334;
     display: flex;
     font-family: "Minecraft Seven", sans-serif;
     justify-content: center;
@@ -361,7 +354,7 @@ a {
     margin: 8px;
 }
 
-/* 主体块 */
+/* Base Block */
 .block {
     background: #48494A;
     border-bottom: 2px solid #333334;
@@ -383,12 +376,11 @@ a {
     text-align: center;
 }
 
-/* 块间隙 */
 .block_spacing {
     height: 20px;
 }
 
-/* 页面底部信息 */
+/* (?) Footer Info */
 .page_info_title, .page_info {
     font-family: "NotoSans Bold", sans-serif;
     font-size: 12px;
@@ -403,7 +395,6 @@ a {
     color: rgba(255, 255, 255, 0.4);
 }
 
-/* 全屏遮罩 */
 .overlay {
     background-color: rgba(0, 0, 0, 0.7);
     bottom: 0;
@@ -415,7 +406,6 @@ a {
     z-index: 11;
 }
 
-/* 除了顶栏 */
 .overlay_main {
     background-color: rgba(0, 0, 0, 0.7);
     bottom: 0;
@@ -428,13 +418,13 @@ a {
 }
 
 
-/* 自定义滚动条 */
+/* Custom Scrollbar */
 custom-scrollbar {
     display: block;
     opacity: 1;
     overflow-y: hidden;
     position: absolute;
-    right: 2px; /* 右侧显示 */
+    right: 0;
     transition: opacity 1s;
 }
 
@@ -451,7 +441,7 @@ custom-scrollbar-thumb {
     position: absolute;
 }
 
-/* 主要滚动条 */
+/* Primary Scrollbar */
 custom-scrollbar.primary_custom_scrollbar {
     width: 22px;
 }
@@ -473,7 +463,7 @@ custom-scrollbar.primary_custom_scrollbar custom-scrollbar-thumb {
     width: 12px;
 }
 
-/* 次要滚动条 */
+/* Secondary Scrollbar */
 custom-scrollbar.secondary_custom_scrollbar {
     height: 100%;
     top: 0;
@@ -498,7 +488,7 @@ custom-scrollbar.secondary_custom_scrollbar custom-scrollbar-thumb {
 }
 
 
-/* 文章样式 */
+/* Article */
 article_block {
     display: block;
     min-width: 270px;
@@ -690,7 +680,7 @@ article_list_l4:before {
 }
 
 
-/* 按钮 */
+/* Button */
 button {
     align-items: center;
     display: flex;
@@ -794,7 +784,7 @@ button {
     filter: invert(100%) grayscale(100%) brightness(50%);
 }
 
-/* 带有图标的按钮 */
+/* Button with Icon */
 .button_img {
     width: 14px;
 }
@@ -814,7 +804,6 @@ button {
     width: 14px;
 }
 
-/* 侧边栏按钮 */
 .sidebar_btn {
     background-color: #48494A;
     border: 2px solid #131313;
@@ -835,7 +824,7 @@ button {
     padding-bottom: 2px;
 }
 
-/* 带有Tooltip的按钮 */
+/* Button with Tooltip */
 .btn_with_tooltip_content {
     display: inline-block;
     position: relative;
@@ -868,8 +857,6 @@ button {
     z-index: 1;
 }
 
-
-/* Checkbox 复选框 */
 custom-checkbox {
     display: inline-block;
     margin: 5px;
@@ -937,12 +924,12 @@ custom-checkbox {
 }
 
 
-/* 删除线 */
+/* Strikethrough */
 del-line {
     text-decoration: line-through;
 }
 
-/* Divider 分割线 */
+/* Divider */
 divider {
     background-color: #58585A;
     display: block;
@@ -959,7 +946,7 @@ divider-box {
     width: 100%;
 }
 
-/* Line 分割线 */
+/* Line */
 line {
     background-color: #48494A;
     display: block;
@@ -977,7 +964,7 @@ vertical-line {
 }
 
 
-/* Dropdown 下拉菜单 */
+/* Dropdown */
 custom-dropdown {
     cursor: pointer;
     display: block;
@@ -1068,7 +1055,7 @@ custom-dropdown .disabled_dropdown {
 }
 
 
-/* 链接框 */
+/* Link Blocks */
 .link_block_group {
     margin: 8px;
 }
@@ -1762,123 +1749,4 @@ text-field {
 
 .input_btn {
     width: 120px;
-}
-
-/* Article */
-
-article_title {
-    color: #FFFFFF;
-    display: block;
-    font-family: "Minecraft Seven", sans-serif;
-    font-size: 21px;
-    height: auto;
-    margin: 15px;
-}
-
-article_date, article_subtitle {
-    display: block;
-    font-family: "Minecraft Seven", sans-serif;
-    font-size: 18px;
-    height: auto;
-    margin: 10px;
-}
-
-article_detail {
-    display: block;
-    font-family: "NotoSans Bold", sans-serif;
-    margin: 0 6px;
-    text-align: left;
-}
-
-article_note {
-    background-color: rgba(46, 107, 229, 0.1);
-    border-left: 6px solid #2E6BE5;
-    display: block;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 6px 0;
-    padding: 10px;
-}
-
-article_list_title {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-left: 6px solid #FFFFFF;
-    display: block;
-    font-size: 17px;
-    margin: 10px 0;
-    padding: 4px 0 4px 10px;
-}
-
-article_list {
-    display: block;
-    margin: 10px 0;
-    padding-left: 16px;
-    position: relative;
-}
-
-article_list:before {
-    background-color: #FFFFFF;
-    content: "";
-    height: 6px;
-    left: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 6px;
-}
-
-article_list_l2 {
-    display: block;
-    margin: 10px 0;
-    padding-left: 32px;
-    position: relative;
-}
-
-article_list_l2:before {
-    background-color: #FFFFFF;
-    content: "";
-    height: 6px;
-    left: 16px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
-    width: 6px;
-}
-
-article_list_l3 {
-    display: block;
-    margin: 10px 0;
-    padding-left: 48px;
-    position: relative;
-}
-
-article_list_l3:before {
-    border: 2px solid #FFFFFF;
-    box-sizing: border-box;
-    content: "";
-    height: 6px;
-    left: 32px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 6px;
-}
-
-article_list_l4 {
-    display: block;
-    margin: 10px 0;
-    padding-left: 60px;
-    position: relative;
-}
-
-article_list_l4:before {
-    border: 2px solid #FFFFFF;
-    box-sizing: border-box;
-    content: "";
-    height: 6px;
-    left: 48px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
-    width: 6px;
 }

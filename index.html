@@ -47,7 +47,7 @@
             height: 50px;
         }
 
-        .btn:active {
+        .btn:active:not(.disabled_btn) {
             height: 46px;
         }
 
@@ -132,7 +132,7 @@
                             <div class="main_title_span_sub">Ultimate Minecraft P*r*cy Wiki</div>
                         </div>
                     </div>
-                    <div class="main main_block">
+                    <div class="main">
                         <div class="main_block_content">
                             <div class="btn_group">
                                 <custom-button data="default|green|small||false||" js="openLink('./docs');" text="Get Started"></custom-button>
@@ -140,7 +140,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="main main_block">
+                    <div class="main">
                         <div class="main_block_content">
                             <div class="wrap_flex">
                                 <link-block class="description_block" role="link" onclick="openLink('./unlockers');" aria-label="Unlockers">
